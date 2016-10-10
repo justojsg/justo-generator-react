@@ -1,0 +1,1 @@
+<Route path="{{scope.path}}" component={require("../views/{{#if (ne scope.router 'map')}}{{scope.router}}/{{/if}}{{scope.view}}").default}{{#if scope.onEnter}} onEnter={null}{{/if}}{{#if scope.onLeave}} onLeave={null}{{/if}} />

@@ -1,0 +1,19 @@
+{{#if (in scope.type "button" "reset")}}
+<input type="{{scope.type}}" value="{{scope.value}}" onClick={(evt) => alert("Clicked!")} />
+{{else if (eq scope.type "submit")}}
+<input type="{{scope.type}}" value="{{scope.value}}" />
+{{else if (eq scope.type "checkbox")}}
+{{> input/checkbox}}
+{{else if (eq scope.type "color")}}
+<input type="color"{{#if scope.name}} name="{{scope.name}}"{{/if}}{{#if scope.ref}} ref="{{scope.ref}}"{{/if}}{{#if scope.value}} value={{scope.value}}{{/if}}{{#if scope.onChange}} onChange={(evt) => this.handleChange(evt)}{{/if}}{{#if scope.readOnly}} readOnly{{/if}}{{#if scope.defaultValue}} defaultValue="{{scope.defaultValue}}"{{/if}}{{#if scope.placeholder}} placeholder="{{scope.placeholder}}"{{/if}}{{#if scope.required}} required{{/if}}{{#if scope.autoFocus}} autoFocus{{/if}} />
+{{else if (eq scope.type "date")}}
+<input type="date"{{#if scope.name}} name="{{scope.name}}"{{/if}}{{#if scope.ref}} ref="{{scope.ref}}"{{/if}}{{#if scope.value}} value={{scope.value}}{{/if}}{{#if scope.onChange}} onChange={(evt) => this.handleChange(evt)}{{/if}}{{#if scope.readOnly}} readOnly{{/if}}{{#if scope.defaultValue}} defaultValue="{{scope.defaultValue}}"{{/if}}{{#if scope.placeholder}} placeholder="{{scope.placeholder}}"{{/if}}{{#if scope.required}} required{{/if}}{{#if scope.autoFocus}} autoFocus{{/if}} />
+{{else if (eq scope.type "radio")}}
+{{> input/radio}}
+{{else if (eq scope.type "time")}}
+<input type="time"{{#if scope.name}} name="{{scope.name}}"{{/if}}{{#if scope.ref}} ref="{{scope.ref}}"{{/if}}{{#if scope.value}} value={{scope.value}}{{/if}}{{#if scope.onChange}} onChange={(evt) => this.handleChange(evt)}{{/if}}{{#if scope.readOnly}} readOnly{{/if}}{{#if scope.defaultValue}} defaultValue="{{scope.defaultValue}}"{{/if}}{{#if scope.placeholder}} placeholder="{{scope.placeholder}}"{{/if}}{{#if scope.required}} required{{/if}}{{#if scope.autoFocus}} autoFocus{{/if}} />
+{{else if (eq scope.type "hidden")}}
+<input type="hidden"{{#if scope.name}} name="{{scope.name}}"{{/if}}{{#if scope.ref}} ref="{{scope.ref}}"{{/if}}{{#if scope.value}} value={{scope.value}}{{/if}}{{#if scope.defaultValue}} defaultValue="{{scope.defaultValue}}"{{/if}}{{#if scope.onChange}} onChange={(evt) => this.handleChange(evt)}{{/if}}{{#if scope.readOnly}} readOnly{{/if}} />
+{{else}}
+<input type="{{scope.type}}"{{#if scope.name}} name="{{scope.name}}"{{/if}}{{#if scope.ref}} ref="{{scope.ref}}"{{/if}}{{#if scope.value}} value={{scope.value}}{{/if}}{{#if scope.onChange}} onChange={(evt) => this.handleChange(evt)}{{/if}}{{#if scope.readOnly}} readOnly{{/if}}{{#if scope.defaultValue}} defaultValue="{{scope.defaultValue}}"{{/if}}{{#if scope.pattern}} pattern="{{scope.pattern}}"{{/if}}{{#if scope.placeholder}} placeholder="{{scope.placeholder}}"{{/if}}{{#if scope.required}} required{{/if}}{{#if scope.autoFocus}} autoFocus{{/if}} />
+{{/if}}

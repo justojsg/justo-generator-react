@@ -1,0 +1,20 @@
+module.exports = {
+  "default": require("./lib/Generator").default,
+  "component": require("./lib/ComponentGenerator").default,
+  "flux": require("./lib/FluxGenerator").default,
+  "flux action": require("./lib/FluxActionGenerator").default,
+  "flux action file": require("./lib/FluxActionFileGenerator").default,
+  "flux component": require("./lib/FluxComponentGenerator").default,
+  "flux form": require("./lib/FluxFormGenerator").default,
+  "flux store": require("./lib/FluxStoreGenerator").default,
+  "view": require("./lib/ViewGenerator").default,
+  "snippet link": require("./lib/SnippetLinkGenerator").default,
+  "snippet input": require("./lib/SnippetInputGenerator").default,
+  "snippet label": require("./lib/SnippetLabelGenerator").default,
+  "route": require("./lib/RouteGenerator").default,
+  "route file": require("./lib/RouteFileGenerator").default,
+  "form": require("./lib/FormGenerator").default,
+  "snippet select": require("./lib/SnippetSelectGenerator").default,
+  "snippet option": require("./lib/SnippetOptionGenerator").default,
+  "snippet textarea": require("./lib/SnippetTextareaGenerator").default
+};

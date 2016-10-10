@@ -1,0 +1,40 @@
+<!doctype html>
+
+<html lang="{{scope.htmlLang}}">
+  <head>
+    <meta charset="utf-8">
+    <title>React app</title>
+
+    {{#if scope.baseUrl}}
+    <base href="{{scope.baseUrl}}">
+    {{/if}}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui, minimum-scale=1">
+    <!-- <meta name="description" content="..."> -->
+    <!-- <link rel="icon" type="image/png" href="/images/favicon.png"> -->
+
+    {{#if (contain scope.indexHtmlDependencies "Font Awesome")}}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" crossorigin="anonymous">
+    {{/if}}
+    {{#if (contain scope.indexHtmlDependencies "Bootstrap")}}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"  crossorigin="anonymous">
+    {{/if}}
+    <link rel="stylesheet" href="./stylesheets/style.css">
+  </head>
+
+  <body>
+    <!-- React app elemenent -->
+    <div id="react-app">
+    </div>
+
+    {{#if (contain scope.indexHtmlDependencies "Bootstrap")}}
+    <!-- Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+    {{/if}}
+    <!-- React bundle -->
+    <script src="./scripts/react-app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+  {{scope.literal}}: "{{scope.type}}",  //action type
+  {{scope.creator}}(data) {  //action creator
+    dispatcher.dispatch({
+      type: this.{{scope.literal}},
+      data: data
+    });
+  },

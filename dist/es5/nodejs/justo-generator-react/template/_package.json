@@ -1,0 +1,74 @@
+{
+  "name": "{{scope.name}}",
+  "version": "0.1.0",
+  "description": "{{scope.desc}}",
+  "homepage": "{{http scope.homepage}}",
+  "author": {
+    "name": "{{scope.author}}",
+    "email": "{{scope.authorEmail}}",
+    "url": "{{http scope.authorHomepage}}"
+  },
+  "contributors": [
+    {
+      "name": "{{scope.contributor}}",
+      "email": "{{scope.contributorEmail}}",
+      "url": "{{http scope.contributorHomepage}}"
+    }
+  ],
+  "keywords": [],
+  "bugs": {
+    "url": "{{http scope.bugsUrl}}",
+    "email": "{{scope.bugsEmail}}"
+  },
+  "repository": {
+    "type": "git",
+    "url": "{{scope.git}}"
+  },
+  "engines": {
+    "node": ">= 5.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "dependencies": {
+    {{#if (contain scope.npmDependencies "flux")}}
+    "flux": "*",
+    {{/if}}
+    {{#if (contain scope.npmDependencies "lodash")}}
+    "lodash": "*",
+    {{/if}}
+    {{#if (contain scope.npmDependencies "marked")}}
+    "marked": "*",
+    {{/if}}
+    "react": "{{scope.reactVersion}}",
+    {{#if scope.reactRouter}}
+    "react-router": "*",
+    {{/if}}
+    "react-dom": "{{scope.reactVersion}}"
+  },
+  "devDependencies": {
+    "babelify": "*",
+    "babel-preset-es2015": "*",
+    "babel-preset-react": "*",
+    "eslint-plugin-react": "*",
+    "justo": "*",
+    "justo-assert": "*",
+    "justo-plugin-browserify": "*",
+    "justo-plugin-chrome": "*",
+    "justo-plugin-eslint": "*",
+    "justo-plugin-fs": "*",
+    "justo-plugin-jsonlint": "*",
+    "justo-plugin-less": "*",
+    {{#if scope.npm}}
+    "justo-plugin-npm": "*",
+    {{/if}}
+    "justo-plugin-uglifyjs": "*"
+  },
+  {{#unless scope.npm}}
+  "private": true,
+  {{/unless}}
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "test": "justo test"
+  }
+}

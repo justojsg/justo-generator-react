@@ -1,0 +1,3 @@
+Sitemap: http://{{scope.homepage}}/sitemap.xml
+User-agent: *
+Disallow:
