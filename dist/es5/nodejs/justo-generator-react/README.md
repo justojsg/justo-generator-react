@@ -1,3 +1,4 @@
+[![NPM version](http://img.shields.io/npm/v/justo-generator-react.svg)](https://www.npmjs.org/package/justo-generator-react)
 [![Build Status](https://travis-ci.org/justojsg/justo-generator-react.svg?branch=master)](https://travis-ci.org/justojsg/justo-generator-react)
 [![Dependency Status](https://david-dm.org/justojsg/justo-generator-react.svg)](https://david-dm.org/justojsg/justo-generator-react)
 [![devDependency Status](https://david-dm.org/justojsg/justo-generator-react/dev-status.svg)](https://david-dm.org/justojsg/justo-generator-react#info=devDependencies)
