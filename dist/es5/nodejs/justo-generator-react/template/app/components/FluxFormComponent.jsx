@@ -1,18 +1,11 @@
 //imports
 import React from "react";
+{{#if (ne scope.store "<none>")}}
 import store from "../stores/{{scope.store}}";
+{{/if}}
 {{#if (ne scope.actionModule "<none>")}}
 import {{scope.actionModule}} from "../actions/{{scope.actionModule}}";
 {{/if}}
-
-//private members
-{{#if scope.handleChange}}
-const handleChange = Symbol();
-{{/if}}
-{{#if scope.handleStoreChange}}
-const handleStoreChange = Symbol();
-{{/if}}
-const handleSubmit = Symbol();
 
 /**
  * {{scope.desc}}
@@ -110,7 +103,7 @@ export default class {{scope.name}} extends React.Component {
    * @private
    * @param evt:SyntheticEvent  The event object.
    */
-  [handleSubmit](evt) {
+  handleSubmit(evt) {
     {{#if scope.preventDefaultOnSubmit}}
     evt.preventDefault();
     {{/if}}
@@ -123,31 +116,12 @@ export default class {{scope.name}} extends React.Component {
    * @private
    * @param evt:SyntheticEvent  The event object.
    */
-  [handleChange](evt) {
+  handleChange(evt) {
     const target = evt.target;
 
     this.setState({
       [evt.target.name]: (target.type == "checkbox" ? target.checked : target.value)
     });
-  }
-  {{/if}}
-  {{#if scope.handleStoreChange}}
-
-  /**
-   * Handle the change event fired by the Flux store.
-   *
-   * @private
-   */
-  [handleStoreChange]() {
-    //async example:
-    //store.find({...}, (err, doc) => {
-    //  if (err) console.log(err);
-    //  else this.setState(doc);
-    //});
-
-    //sync example:
-    //var doc = store.find({...});
-    //this.setState(doc);
   }
   {{/if}}
 
@@ -157,10 +131,6 @@ export default class {{scope.name}} extends React.Component {
    * @override
    */
   componentDidMount() {
-    {{#if scope.handleStoreChange}}
-    store.addListener(() => this[handleStoreChange]());
-    {{/if}}
-
     // store.findOne({id: this.props.id}, (err, doc) => {
     //   if (err) alert(err);
     //   else this.setState(doc);
@@ -183,24 +153,11 @@ export default class {{scope.name}} extends React.Component {
    */
   render() {
     const state = this.state;
-    var elm;
 
-    //(1) build element
-    if (!this.state.someProperty) {
-      elm = (
-        <div>
-          <span className="fa fa-spinner fa-pulse fa-3x fa-fw"></span>Loading...
-        </div>
-      );
-    } else {
-      elm =
-        <form onSubmit={(evt) => this[handleSubmit](evt)}{{#if scope.handleChange}} onChange={(evt) => this[handleChange](evt)}{{/if}}{{#if scope.autoComplete}} autoComplete="on"{{/if}}{{#if scope.noValidate}} noValidate{{/if}}>
+    return (
+      <form onSubmit={(evt) => this.handleSubmit(evt)}{{#if scope.handleChange}} onChange={(evt) => this.handleChange(evt)}{{/if}}{{#if scope.autoComplete}} autoComplete="on"{{/if}}{{#if scope.noValidate}} noValidate{{/if}}>
 
-        </form>
-      );
-    }
-
-    //(2) return element
-    return elm;
+      </form>
+    );
   }
 }

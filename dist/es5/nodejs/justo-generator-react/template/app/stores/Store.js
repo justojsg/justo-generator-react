@@ -22,8 +22,18 @@ export default new class {{scope.name}} extends Store {
    */
   constructor(dispatcher) {
     super(dispatcher);
+    Object.defineProperty(this, "changed", {value: false, writable: true});
   }
-  {{#unless scope.readOnly}}
+
+  /**
+  * Check whether the last write operation modified data in the data source.
+  *
+  * @override
+  * @return boolean
+  */
+  hasChanged() {
+    return this.changed;
+  }
 
   /**
    * Handle the actions.
@@ -51,5 +61,4 @@ export default new class {{scope.name}} extends Store {
     //   //break;
     // }
   }
-  {{/unless}}
 }(dispatcher);

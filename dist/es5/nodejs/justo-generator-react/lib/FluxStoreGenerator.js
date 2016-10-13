@@ -39,7 +39,7 @@ var _justoGenerator = require("justo-generator");function _classCallCheck(instan
     answers) {
       this.input("name");
       this.input("desc");
-      if (this.confirm("readOnly")) answers.actionModule = "<none>";else
+      this.confirm("readOnly");
       this.list({ name: "actionModule", choices: ["<none>"].concat(this.getFileNames("app/actions", { ext: false })) });
       this.list("dataAccess");
     } }, { key: "generate", value: function generate(

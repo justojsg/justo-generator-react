@@ -14,13 +14,20 @@ Features:
 - Allow to add routes to router files.
 - Allow to add components to the `components` directory.
 - Generate snippets for: `<form>`, `<input>`, `<label>` and `<Link>`.
+- Support *Flux*.
 
-Note. You can learn *React* and this generator, in Spanish, on [nodemy.com](http://nodemy.com).
+Note. You can learn *React*, *Flux* and this generator, in Spanish, on [nodemy.com](http://nodemy.com).
 
 ## Install
 
 ```
 npm install -g justo-cli justo-generator-react
+```
+
+## Help
+
+```
+justo -g react help
 ```
 
 ## Creating a project scaffolding
@@ -83,4 +90,40 @@ justo -g react snippet form
 justo -g react snippet input
 justo -g react snippet label
 justo -g react snippet link
+```
+
+## Adding Flux-specific folders (Flux)
+
+This command must be executed after `justo -g react` for creating the *Flux*-specific folders and files:
+
+```
+justo -g react flux
+```
+
+## Adding action file (Flux)
+
+```
+justo -g react flux action file
+```
+
+## Adding action to action file (Flux)
+
+You can add an action and its creator method using this command:
+
+```
+justo -g react flux action
+```
+
+## Adding React component (Flux)
+
+When the *React* component accesses a store, you must use this command, instead of `component`:
+
+```
+justo -g react flux component
+```
+
+## Adding store (Flux)
+
+```
+justo -g react flux store
 ```

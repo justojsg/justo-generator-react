@@ -70,11 +70,6 @@ var _justoGenerator = require("justo-generator");function _interopRequireDefault
 
 
 
-
-
-
-
-
     answers) {
       this.list({ name: "folder", choices: ["<none>", "<other>"].concat(this.getDirNames("app/components")) });
 
@@ -96,12 +91,8 @@ var _justoGenerator = require("justo-generator");function _interopRequireDefault
       this.confirm("handleChange");
       this.confirm("autoComplete");
       this.confirm("noValidate");
-      if (this.confirm("handleStoreChange")) {
-        this.list({ name: "actionModule", choices: ["<none>"].concat(this.getFileNames("app/actions", { ext: false })) });
-      } else {
-        answers.actionModule = "<none>";
-      }
-      this.list({ name: "store", choices: this.getFileNames("app/stores", { ext: false }) });
+      this.list({ name: "actionModule", choices: ["<none>"].concat(this.getFileNames("app/actions", { ext: false })) });
+      this.list({ name: "store", choices: ["<none>"].concat(this.getFileNames("app/stores", { ext: false })) });
     } }, { key: "generate", value: function generate(
 
 
@@ -116,4 +107,4 @@ var _justoGenerator = require("justo-generator");function _interopRequireDefault
       _path2.default.join(answers.folder, file),
       answers);
 
-    } }, { key: "desc", get: function get() {return "Generate a form component for a Flux app.";} }, { key: "params", get: function get() {return { actionModule: "Action module", autoComplete: { title: "Would you like to set the autoComplete attribute to on?", type: "boolean", default: false }, defineContext: { title: "Would you like to define context for the subcomponents (getChildContext() and childContextTypes)?", type: "boolean", default: false }, desc: "Component description", folder: "Add to subfolder", defaultProps: { title: "Would you like to set deault props?", type: "boolean", default: false }, displayName: "Component display name", name: "Component name", noValidate: { title: "Would you like to set the noValidate attribute to true?", type: "boolean", default: false }, handleChange: { title: "Would you like to handle the input Change event?", type: "boolean", default: true }, handleStoreChange: { title: "Would you like to handle the store change event?", type: "boolean", default: true }, preventDefaultOnSubmit: { title: "Would you like to cancel the default action on Submit?", type: "boolean", default: true }, propTypes: { title: "Would you like to set prop types?", type: "boolean", default: false }, store: "Store to access", useContext: { title: "Would you like to use context from some supercomponent (contextTypes)?", type: "boolean", default: false } };} }]);return _class;}(_justoGenerator.HandlebarsGenerator);exports.default = _class;
+    } }, { key: "desc", get: function get() {return "Generate a form component for a Flux app.";} }, { key: "params", get: function get() {return { actionModule: "Action module", autoComplete: { title: "Would you like to set the autoComplete attribute to on?", type: "boolean", default: false }, defineContext: { title: "Would you like to define context for the subcomponents (getChildContext() and childContextTypes)?", type: "boolean", default: false }, desc: "Component description", folder: "Add to subfolder", defaultProps: { title: "Would you like to set deault props?", type: "boolean", default: false }, displayName: "Component display name", name: "Component name", noValidate: { title: "Would you like to set the noValidate attribute to true?", type: "boolean", default: false }, handleChange: { title: "Would you like to handle the input Change event?", type: "boolean", default: true }, preventDefaultOnSubmit: { title: "Would you like to cancel the default action on Submit?", type: "boolean", default: true }, propTypes: { title: "Would you like to set prop types?", type: "boolean", default: false }, store: "Store to access", useContext: { title: "Would you like to use context from some supercomponent (contextTypes)?", type: "boolean", default: false } };} }]);return _class;}(_justoGenerator.HandlebarsGenerator);exports.default = _class;
